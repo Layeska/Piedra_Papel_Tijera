@@ -9,34 +9,45 @@
     <link rel="shortcut icon" type="image/x-icon" href="./svg/logo.svg"/>
     <title>Piedra, papel o tijera</title>
 </head>
-<body>
-    <header>
-        <h1>Juego</h1>
+<body>    
+    <div id="myModal" class="modalContainer">
+        <div class="modal-content">
+            <h2>Bienvenido al Juego</h2>
+            <form action="">
+                <div class="form">
+                    <label for="user">Nombre de Jugador:</label>
+                    <input type="text" name="user" id="name" placeholder="Ana Juárez">
+                </div>
+                <div class="optionesPatidas">
+                    <p>Partidas</p>
+                    <div> <input type="button" name="tres" class="b" value="3"> </div>
+                    <div> <input type="button" name="tres" class="b" value="5"> </div>
+                    <div> <input type="button" name="tres" class="b" value="10"> </div>
+                </div>
+            </form>
+            <div class="footer"> <button type="button" onclick="empezarPartida()">¡Comenzar Partida!</button> </div>
+        </div>
+    </div> 
+
+    <header class="body">
+        <h1>♦ Piedra, Papel o Tijera ♦</h1>
     </header>
     
-    <div class="container_Score">
+    <div class="container_Score body">
         <div id="user-label" class="badge">User</div>
         <div id="computer-label" class="badge">Comp</div>
         <span id="user-score">0</span> : <span id="computer-score">0</span>
     </div>
 
-    <div class="result">
-        <p>Papel Vs. Roca, ¡Tú ganas!</p>
+    <div class="result body"> <p>Papel Vs. Roca, ¡Tú ganas!</p> </div>
+
+    <div class="choices body">
+        <div id="r"> <img src="https://i.postimg.cc/XJ30RJn9/pu-o.png" alt="Piedra" > </div>
+        <div id="p"> <img src="https://i.postimg.cc/SRxbKv2s/papel.png" alt="Papel"></div>
+        <div id="t"> <img src="https://i.postimg.cc/d1BKwY0p/tijera.png" alt="Tijera"> </div>
     </div>
 
-    <div class="choices">
-        <div id="r">
-            <img src="https://i.postimg.cc/XJ30RJn9/pu-o.png" alt="" >
-        </div>
-        <div id="p">
-            <img src="https://i.postimg.cc/SRxbKv2s/papel.png" alt="">
-        </div>
-        <div id="t">
-            <img src="https://i.postimg.cc/d1BKwY0p/tijera.png" alt="">
-        </div>
-    </div>
-
-    <p id="action-message">Haga su elección</p>
+    <p id="action-message" class="body">Haga su elección</p>
 </body>
 <script src="js/main.js"></script>
 </html>
