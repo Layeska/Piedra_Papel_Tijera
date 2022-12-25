@@ -102,3 +102,33 @@ const main = () => {
 }
 
 main();
+
+//! Modal
+
+var modal = document.getElementById("myModal");
+var body = document.querySelectorAll(".body");
+
+modal.style.display = "block";
+
+for(let dato of body) {
+    dato.style.visibility = "hidden";
+}
+
+let nombre = document.getElementById("name");
+let opciones = document.querySelectorAll(".b");
+
+const cliked = function () {
+    console.log("user ", nombre.value);
+    console.log("el texto que tiene es: ", this.value);
+}
+
+opciones.forEach(b => {
+    b.addEventListener("click", cliked);
+});
+
+function empezarPartida() {
+    modal.style.display = "none";
+    for(let dato of body) {
+        dato.style.visibility = "visible";
+    }
+}
