@@ -308,6 +308,6 @@ header .partidaNumber {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .margenTop {
-        margin-top: -18% !important;
+        margin-top: -16% !important;
     }
 }
