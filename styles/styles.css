@@ -263,7 +263,6 @@ header .partidaNumber {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .margenTop {
-        background: rgb(11, 202, 192);
         margin-top: -50% !important;
     }
 
@@ -278,7 +277,6 @@ header .partidaNumber {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .margenTop {
-        background: rgb(55, 202, 11);
         margin-top: -30% !important;
     }
 }
@@ -286,7 +284,6 @@ header .partidaNumber {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .margenTop {
-        background: rgb(15, 7, 94);
         margin-top: -26% !important;
     }
 }
@@ -294,7 +291,6 @@ header .partidaNumber {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .margenTop {
-        background: rgb(202, 110, 11);
         margin-top: -22% !important;
     }
 }
@@ -302,7 +298,6 @@ header .partidaNumber {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .margenTop {
-        background: rgb(202, 11, 122);
         margin-top: -18% !important;
     }
 }
