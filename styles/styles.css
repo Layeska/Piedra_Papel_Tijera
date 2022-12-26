@@ -72,7 +72,7 @@ header .partidaNumber {
 }
 
 .margenTop {
-    margin-top: -27% !important;
+    margin-top: -15% !important;
 }
 
 .choices img {
@@ -248,12 +248,61 @@ header .partidaNumber {
 }
 
 #mensajeFinal {
-    width: 50%;
-    margin: auto;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     gap: 2%;
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--principalColor);
+}
+
+/*! Modo Responsive */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .margenTop {
+        background: rgb(11, 202, 192);
+        margin-top: -50% !important;
+    }
+
+    #mensajeFinal {
+        width: 80%;
+        margin: auto;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .margenTop {
+        background: rgb(55, 202, 11);
+        margin-top: -30% !important;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .margenTop {
+        background: rgb(15, 7, 94);
+        margin-top: -26% !important;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .margenTop {
+        background: rgb(202, 110, 11);
+        margin-top: -22% !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .margenTop {
+        background: rgb(202, 11, 122);
+        margin-top: -18% !important;
+    }
 }
