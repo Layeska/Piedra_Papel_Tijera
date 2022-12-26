@@ -64,7 +64,6 @@ const converToWord = (letter) => {
 };
 
 const win = (user, computer) => {
-    console.log("gana");
     const userDiv = document.querySelector(`#${user} > img`);
 
     userScore++;
@@ -78,7 +77,6 @@ const win = (user, computer) => {
 };
 
 const loser = (user, computer) => {
-    console.log("pierdes");
     const userDiv = document.querySelector(`#${user} > img`);
     computerScore++;
     userScore_Span.innerHTML = userScore;
@@ -92,7 +90,6 @@ const loser = (user, computer) => {
 };
 
 const draw = (user, computer) => {
-    console.log("Empate");
     const userDiv = document.querySelector(`#${user} > img`);
 
     computerScore++;
@@ -117,28 +114,72 @@ const mensaje = () => {
 
     result.style.visibility = "hidden";
     imagenes.classList.add("margenTop");
+
+    userScore > computerScore ? confeti() : 0;
+};
+
+const confeti = () => {
+    const confettiBtn = document.querySelector(".canvas-confetti-btn");
+    let exploding = false;
+
+    var countConfeti = 200;
+    var defaults = { origin: { y: 0.7 } };
+
+    const fire = (particleRatio, opts) => {
+        confetti(Object.assign({}, defaults, opts, { countPaticulas: Math.floor(defaults.countConfeti * particleRatio)}));
+    };
+
+    if (exploding) { return; }
+
+    exploding = true;
+
+    confettiBtn.classList.add("animate__rubberBand");
+
+    window.setTimeout(() => {
+        fire(0.25, {
+            spread: 26,
+            startVelocity: 55,
+        });
+        fire(0.2, {
+            spread: 60,
+        });
+        fire(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.8,
+        });
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2,
+        });
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 45,
+        });
+
+        window.setTimeout(() => {
+            confettiBtn.classList.remove("animate__rubberBand");
+            exploding = false;
+        }, 300);
+    }, 200);
 };
 
 function game(opcion) {
-    console.log("Opción: ",opcion);
     const computerOption = getComputerChoice();
-    console.log("PC: ",computerOption);
-    console.log(opcion + computerOption);
 
     switch(opcion + computerOption) {
-        case "rt": 
-        case "pr":
-        case "tp":  win(opcion, computerOption);
-                    break;
-        case "rp":
-        case "pt":
-        case "tr": loser(opcion, computerOption);
-        break;
-        case "rr":
-        case "pp":
-        case "tt":  draw(opcion, computerOption);
-                    break;
-    }
+        case "rt":  case "pr": case "tp":  
+            win(opcion, computerOption);
+            break;
+        case "rp": case "pt": case "tr":
+            loser(opcion, computerOption);
+            break;
+        case "rr": case "pp": case "tt":
+            draw(opcion, computerOption);
+            break;
+    };
 
     rondas();
 
@@ -154,20 +195,9 @@ function game(opcion) {
 };
 
 const main = () => {
-    roca.addEventListener("click", () => {
-        console.log("roca :v");
-        game("r");
-    });
-
-    papel.addEventListener("click", () => {
-        console.log("papel :v");
-        game("p");
-    });
-
-    tijera.addEventListener("click", () => {
-        console.log("tijeras :v");
-        game("t");
-    });
+    roca.addEventListener("click", () => game("r"));
+    papel.addEventListener("click", () => game("p"));
+    tijera.addEventListener("click", () => game("t"));
 }
 
 main();
