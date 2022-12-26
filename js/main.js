@@ -112,6 +112,7 @@ const mensaje = () => {
     let imagenes = document.querySelector(".choices");
     mensajeFinal.innerHTML = userScore > computerScore ? `¡¡Felicidades ${nombre.value}!! 😎🫣` : `¡¡Suerte en la próxima ${nombre.value}!! 😓☹️`;
 
+    scoreBoard.style.visibility = "hidden";
     result.style.visibility = "hidden";
     imagenes.classList.add("margenTop");
 
