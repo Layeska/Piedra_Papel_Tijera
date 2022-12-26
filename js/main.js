@@ -1,5 +1,6 @@
 let userScore = 0;
 let computerScore = 0;
+let counter = 0;
 
 const userScore_Span = document.querySelector("#user-score");
 const computerScore_Span = document.querySelector("#computer-score");
@@ -8,6 +9,46 @@ const result = document.querySelector(".result > p");
 const roca = document.querySelector("#r");
 const papel = document.querySelector("#p");
 const tijera = document.querySelector("#t");
+
+//! Mensaje final al usuario
+let mensajeFinal = document.getElementById("mensajeFinal");
+mensajeFinal.style.display = "none";
+
+//! muestra un reloj con las partidas
+let partidaInicial = document.querySelector("#partidaMomento");
+let partidaTotal = document.querySelector("#partidaFinal");
+
+//! Modal
+var modal = document.getElementById("myModal");
+var body = document.querySelectorAll(".body");
+
+modal.style.display = "block";
+
+for(let dato of body) {
+    dato.style.visibility = "hidden";
+}
+
+let user = document.querySelector("#nombreUser");
+let nombre = document.getElementById("name");
+let opciones = document.querySelectorAll(".b");
+let selected = 0;
+
+const cliked = function () { selected = Number(this.value); }
+
+opciones.forEach(b => {
+    b.addEventListener("click", cliked);
+});
+
+function empezarPartida() {
+    if(nombre.value !== "" && selected !== 0) {
+        modal.style.display = "none";
+        for(let dato of body) {
+            dato.style.visibility = "visible";
+        }
+
+        user.innerHTML = nombre.value;
+    }
+}
 
 //! Manda la opción que escoje la pc
 function getComputerChoice() {
@@ -33,6 +74,7 @@ const win = (user, computer) => {
     
     userDiv.classList.add("green-glow");
     setTimeout(() => userDiv.classList.remove("green-glow"), 300);
+    counter++;
 };
 
 const loser = (user, computer) => {
@@ -46,6 +88,7 @@ const loser = (user, computer) => {
     userDiv.classList.add("red-glow");
 
     setTimeout(() => userDiv.classList.remove("red-glow"), 300);
+    counter++;
 };
 
 const draw = (user, computer) => {
@@ -60,6 +103,20 @@ const draw = (user, computer) => {
 
     userDiv.classList.add("gray-glow");
     setTimeout(() => userDiv.classList.remove("gray-glow"), 300);
+    counter++;
+};
+
+const rondas = () =>  {
+    partidaInicial.innerHTML = counter;
+    partidaTotal.innerHTML = selected;
+};
+
+const mensaje = () => {
+    let imagenes = document.querySelector(".choices");
+    mensajeFinal.innerHTML = userScore > computerScore ? `¡¡Felicidades ${nombre.value}!! 😎🫣` : `¡¡Suerte en la próxima ${nombre.value}!! 😓☹️`;
+
+    result.style.visibility = "hidden";
+    imagenes.classList.add("margenTop");
 };
 
 function game(opcion) {
@@ -82,6 +139,18 @@ function game(opcion) {
         case "tt":  draw(opcion, computerOption);
                     break;
     }
+
+    rondas();
+
+    //! Para controlar la cantidad de partidas
+    if(counter == selected) {
+        roca.style.pointerEvents = "none";
+        papel.style.pointerEvents = "none";
+        tijera.style.pointerEvents = "none";
+
+        mensaje();
+        mensajeFinal.style.display = "flex";
+    };
 };
 
 const main = () => {
@@ -89,12 +158,12 @@ const main = () => {
         console.log("roca :v");
         game("r");
     });
-    
+
     papel.addEventListener("click", () => {
         console.log("papel :v");
         game("p");
     });
-    
+
     tijera.addEventListener("click", () => {
         console.log("tijeras :v");
         game("t");
@@ -102,33 +171,3 @@ const main = () => {
 }
 
 main();
-
-//! Modal
-
-var modal = document.getElementById("myModal");
-var body = document.querySelectorAll(".body");
-
-modal.style.display = "block";
-
-for(let dato of body) {
-    dato.style.visibility = "hidden";
-}
-
-let nombre = document.getElementById("name");
-let opciones = document.querySelectorAll(".b");
-
-const cliked = function () {
-    console.log("user ", nombre.value);
-    console.log("el texto que tiene es: ", this.value);
-}
-
-opciones.forEach(b => {
-    b.addEventListener("click", cliked);
-});
-
-function empezarPartida() {
-    modal.style.display = "none";
-    for(let dato of body) {
-        dato.style.visibility = "visible";
-    }
-}
