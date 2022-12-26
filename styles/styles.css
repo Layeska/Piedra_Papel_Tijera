@@ -149,6 +149,30 @@ header .partidaNumber {
     border-bottom: 1px solid #4d5059;
 }
 
+.modalContainer form input::-webkit-input-placeholder {
+    font-size: 0.8rem;
+    margin: auto;
+    font-weight: 200;
+}
+
+.modalContainer form input::-moz-placeholder {
+    font-size: 0.8rem;
+    margin: auto;
+    font-weight: 200;
+}
+
+.modalContainer form input:-ms-input-placeholder {
+    font-size: 0.8rem;
+    margin: auto;
+    font-weight: 200;
+}
+
+.modalContainer form input::-ms-input-placeholder {
+    font-size: 0.8rem;
+    margin: auto;
+    font-weight: 200;
+}
+
 .modalContainer form input::placeholder {
     font-size: 0.8rem;
     margin: auto;
@@ -157,6 +181,8 @@ header .partidaNumber {
 
 .optionesPatidas input[type="button"] {
     width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     margin: auto;
     text-align: center;
