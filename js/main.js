@@ -33,6 +33,7 @@ let nombre = document.getElementById("name");
 let opciones = document.querySelectorAll(".b");
 let selected = 0;
 
+//! Para saber la opción de partidas
 const cliked = function () { selected = Number(this.value); }
 
 opciones.forEach(b => {
@@ -108,6 +109,7 @@ const rondas = () =>  {
     partidaTotal.innerHTML = selected;
 };
 
+//! Muestra el mensaje de ganar o perder y oculta el score
 const mensaje = () => {
     let imagenes = document.querySelector(".choices");
     mensajeFinal.innerHTML = userScore > computerScore ? `¡¡Felicidades ${nombre.value}!! 😎` : `¡¡Mala Suerte ${nombre.value}!! ☹️`;
@@ -119,6 +121,7 @@ const mensaje = () => {
     userScore > computerScore ? confeti() : 0;
 };
 
+//! Crea el confetti
 const confeti = () => {
     const confettiBtn = document.querySelector(".canvas-confetti-btn");
     let exploding = false;
